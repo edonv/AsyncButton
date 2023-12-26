@@ -27,11 +27,11 @@ extension AsyncButton {
         runAction: Binding<Bool>? = nil,
         actionOptions: ActionOptions = ActionOptions.all,
         action: @escaping () async -> Void,
-        @ViewBuilder placeholderView: @escaping () -> Placeholder
+        @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == Text {
         self.init(runAction: runAction, action: action, label: {
             Text(title)
-        }, placeholderView: placeholderView)
+        }, placeholder: placeholder)
     }
     
     @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -40,11 +40,11 @@ extension AsyncButton {
         runAction: Binding<Bool>? = nil,
         actionOptions: ActionOptions = ActionOptions.all,
         action: @escaping () async -> Void,
-        @ViewBuilder placeholderView: @escaping () -> Placeholder
+        @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == Text {
         self.init(runAction: runAction, action: action, label: {
             Text(titleKey)
-        }, placeholderView: placeholderView)
+        }, placeholder: placeholder)
     }
     
     @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -53,11 +53,11 @@ extension AsyncButton {
         systemImageName: String,
         actionOptions: ActionOptions = ActionOptions.all,
         action: @escaping () async -> Void,
-        @ViewBuilder placeholderView: @escaping () -> Placeholder
+        @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == Image {
         self.init(runAction: runAction, actionOptions: actionOptions, action: action, label: {
             Image(systemName: systemImageName)
-        }, placeholderView: placeholderView)
+        }, placeholder: placeholder)
     }
     
     @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -66,10 +66,10 @@ extension AsyncButton {
         imageName: String,
         actionOptions: ActionOptions = ActionOptions.all,
         action: @escaping () async -> Void,
-        @ViewBuilder placeholderView: @escaping () -> Placeholder
+        @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == Image {
         self.init(runAction: runAction, actionOptions: actionOptions, action: action, label: {
             Image(imageName)
-        }, placeholderView: placeholderView)
+        }, placeholder: placeholder)
     }
 }

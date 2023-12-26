@@ -19,20 +19,20 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
     @ViewBuilder
     var label: () -> Label
     @ViewBuilder
-    var placeholderView: () -> Placeholder
+    var placeholder: () -> Placeholder
     
     public init(
         runAction: Binding<Bool>? = nil,
         actionOptions: ActionOptions = ActionOptions.all,
         action:  @escaping () async -> Void,
         @ViewBuilder label: @escaping () -> Label,
-        @ViewBuilder placeholderView: @escaping () -> Placeholder
+        @ViewBuilder placeholder: @escaping () -> Placeholder
     ) {
         self.runAction = runAction
         self.actionOptions = actionOptions
         self.action = action
         self.label = label
-        self.placeholderView = placeholderView
+        self.placeholder = placeholder
     }
     
     @State private var isRunningAction = false
@@ -52,7 +52,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
         .disabled(isDisabled)
         .overlayBackport {
             if showProgressView {
-                placeholderView()
+                placeholder()
             }
         }
         .animation(.default.speed(2), value: isEnabled)
