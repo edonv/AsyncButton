@@ -36,7 +36,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
     }
     
     @State private var isRunningAction = false
-    @State private var showProgressView = false
+    @State private var isShowingPlaceholder = false
     private var isDisabled: Bool {
         !isEnabled
         || (actionOptions.contains(.disableButton) && isRunningAction)
@@ -47,16 +47,16 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
             isRunningAction = true
         } label: {
             label()
-                .opacity(showProgressView ? 0 : 1)
+                .opacity(isShowingPlaceholder ? 0 : 1)
         }
         .disabled(isDisabled)
         .overlayBackport {
-            if showProgressView {
+            if isShowingPlaceholder {
                 placeholder()
             }
         }
         .animation(.default.speed(2), value: isEnabled)
-        .animation(.default.speed(2), value: showProgressView)
+        .animation(.default.speed(2), value: isShowingPlaceholder)
         // Sync changes to `runAction` with `isRunningAction`
         .taskBackport(id: runAction?.wrappedValue) {
             guard let newValue = runAction?.wrappedValue,
@@ -77,7 +77,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
             // Make sure that everything is turned back off when scope is eventually exited
             // If the task is cancelled early, this closure is still called when exiting scope
             defer {
-                showProgressView = false
+                isShowingPlaceholder = false
                 isRunningAction = false
                 runAction?.wrappedValue = false
             }
@@ -87,7 +87,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
             if actionOptions.contains(.showProgressView) {
                 progressViewTask = Task {
                     try await Task.sleep(nanoseconds: 150_000_000)
-                    showProgressView = true
+                    isShowingPlaceholder = true
                 }
             }
             
