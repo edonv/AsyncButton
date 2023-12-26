@@ -84,7 +84,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
             
             // If options are set to show the placeholder view, start showing it if `action()` takes longer than 0.15 seconds
             var progressViewTask: Task<Void, Error>?
-            if actionOptions.contains(.showProgressView) {
+            if actionOptions.contains(.showPlaceholder) {
                 progressViewTask = Task {
                     try await Task.sleep(nanoseconds: 150_000_000)
                     isShowingPlaceholder = true

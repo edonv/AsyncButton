@@ -16,7 +16,7 @@ extension AsyncButton {
         }
         
         public static var disableButton: ActionOptions { ActionOptions(rawValue: 1 << 0) }
-        public static var showProgressView: ActionOptions { ActionOptions(rawValue: 1 << 1) }
-        public static var all: ActionOptions { [.disableButton, .showProgressView] }
+        public static var showPlaceholder: ActionOptions { ActionOptions(rawValue: 1 << 1) }
+        public static var all: ActionOptions { [.disableButton, .showPlaceholder] }
     }
 }
