@@ -47,29 +47,59 @@ extension AsyncButton {
         }, placeholder: placeholder)
     }
     
-    @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, *)
-    public init(
+    @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, *)
+    public init<S: StringProtocol>(
+        _ title: S,
+        systemImage: String,
         runAction: Binding<Bool>? = nil,
-        systemImageName: String,
         actionOptions: ActionOptions = ActionOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
-    ) where Label == Image {
+    ) where Label == SwiftUI.Label<Text, Image> {
         self.init(runAction: runAction, actionOptions: actionOptions, action: action, label: {
-            Image(systemName: systemImageName)
+            Label(title, systemImage: systemImage)
         }, placeholder: placeholder)
     }
     
-    @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, *)
+    @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, *)
     public init(
+        _ titleKey: LocalizedStringKey,
+        systemImage: String,
         runAction: Binding<Bool>? = nil,
-        imageName: String,
         actionOptions: ActionOptions = ActionOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
-    ) where Label == Image {
+    ) where Label == SwiftUI.Label<Text, Image> {
         self.init(runAction: runAction, actionOptions: actionOptions, action: action, label: {
-            Image(imageName)
+            Label(titleKey, systemImage: systemImage)
+        }, placeholder: placeholder)
+    }
+    
+    @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, *)
+    public init<S: StringProtocol>(
+        _ title: S,
+        image: String,
+        runAction: Binding<Bool>? = nil,
+        actionOptions: ActionOptions = ActionOptions.all,
+        action: @escaping () async -> Void,
+        @ViewBuilder placeholder: @escaping () -> Placeholder
+    ) where Label == SwiftUI.Label<Text, Image> {
+        self.init(runAction: runAction, actionOptions: actionOptions, action: action, label: {
+            Label(title, image: image)
+        }, placeholder: placeholder)
+    }
+    
+    @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, *)
+    public init(
+        _ titleKey: LocalizedStringKey,
+        image: String,
+        runAction: Binding<Bool>? = nil,
+        actionOptions: ActionOptions = ActionOptions.all,
+        action: @escaping () async -> Void,
+        @ViewBuilder placeholder: @escaping () -> Placeholder
+    ) where Label == SwiftUI.Label<Text, Image> {
+        self.init(runAction: runAction, actionOptions: actionOptions, action: action, label: {
+            Label(titleKey, image: image)
         }, placeholder: placeholder)
     }
 }
