@@ -9,7 +9,7 @@ import Foundation
 
 extension AsyncButton {
     public struct ActionOptions: OptionSet {
-        public var rawValue: UInt8
+        public let rawValue: UInt8
         
         public init(rawValue: UInt8) {
             self.rawValue = rawValue
