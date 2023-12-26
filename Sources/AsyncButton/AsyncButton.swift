@@ -24,10 +24,10 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
     
     /// Creates an asynchronous button that displays a custom label and placeholder.
     /// - Parameters:
-    ///   - runAction: An optional binding to a property that controls the state of the button's asynchronous action.
+    ///   - runAction: An optional binding to a property that controls the state of the button's asynchronous `action`.
     ///   - actionOptions: Options for configuring the button's view composition.
     ///   - action: The asynchronous action to perform when the user triggers the button.
-    ///   - label: A view that describes the purpose of the button's action.
+    ///   - label: A view that describes the purpose of the button's `action`.
     ///   - placeholder: A view that is displayed while `action` runs (optionally can be disabled via `actionOptions`).
     public init(
         runAction: Binding<Bool>? = nil,
