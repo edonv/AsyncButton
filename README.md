@@ -7,3 +7,4 @@ This is a convenience type for encapsulating asynchronous logic in a SwiftUI `Bu
 - [ ] Create environment values (internal ones that are used by public modifiers) for more granular settings
     - [ ] Animation for changes to `isEnabled` and `isShowingPlaceholder`
     - [ ] Duration to wait before showing the placeholder view, which is used just in case `action` is so fast, nothing is needed to be shown
+    - [ ] ActionOptions
