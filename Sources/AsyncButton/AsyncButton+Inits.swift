@@ -20,7 +20,7 @@ extension AsyncButton {
     @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 7.0, *)
     public init(
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = .all,
+        actionOptions: AsyncButtonOptions = .all,
         action: @escaping () async -> Void,
         @ViewBuilder label: @escaping () -> Label
     ) where Placeholder == ProgressViewBackport {
@@ -40,7 +40,7 @@ extension AsyncButton {
     public init<S: StringProtocol>(
         _ title: S,
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == Text {
@@ -60,7 +60,7 @@ extension AsyncButton {
     public init(
         _ titleKey: LocalizedStringKey,
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == Text {
@@ -82,7 +82,7 @@ extension AsyncButton {
         _ title: S,
         systemImage: String,
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == SwiftUI.Label<Text, Image> {
@@ -104,7 +104,7 @@ extension AsyncButton {
         _ titleKey: LocalizedStringKey,
         systemImage: String,
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == SwiftUI.Label<Text, Image> {
@@ -126,7 +126,7 @@ extension AsyncButton {
         _ title: S,
         image: String,
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == SwiftUI.Label<Text, Image> {
@@ -148,7 +148,7 @@ extension AsyncButton {
         _ titleKey: LocalizedStringKey,
         image: String,
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action: @escaping () async -> Void,
         @ViewBuilder placeholder: @escaping () -> Placeholder
     ) where Label == SwiftUI.Label<Text, Image> {

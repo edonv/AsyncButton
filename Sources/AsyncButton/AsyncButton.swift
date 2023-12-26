@@ -15,7 +15,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
     @Environment(\.isEnabled) var isEnabled
     
     var runAction: Binding<Bool>?
-    var actionOptions = ActionOptions.all
+    var actionOptions = AsyncButtonOptions.all
     var action: () async -> Void
     @ViewBuilder
     var label: () -> Label
@@ -31,7 +31,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
     ///   - placeholder: A view that is displayed while `action` runs (optionally can be disabled via `actionOptions`).
     public init(
         runAction: Binding<Bool>? = nil,
-        actionOptions: ActionOptions = ActionOptions.all,
+        actionOptions: AsyncButtonOptions = AsyncButtonOptions.all,
         action:  @escaping () async -> Void,
         @ViewBuilder label: @escaping () -> Label,
         @ViewBuilder placeholder: @escaping () -> Placeholder
