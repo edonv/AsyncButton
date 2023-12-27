@@ -108,6 +108,7 @@ public struct AsyncButton<Label: View, Placeholder: View>: View {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 7.0, *)
 private struct AsyncButton_Preview: View {
     @State private var runAction = false
     
@@ -132,6 +133,7 @@ private struct AsyncButton_Preview: View {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 7.0, *)
 #Preview {
     AsyncButton_Preview()
 }
