@@ -134,7 +134,7 @@ private struct AsyncButton_Preview: View {
 }
 
 @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 7.0, *)
-private struct AsyncButton_Previews: PreviewProvider {
+internal struct AsyncButton_Previews: PreviewProvider {
     static var previews: some View {
         AsyncButton_Preview()
     }
