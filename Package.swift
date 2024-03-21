@@ -28,7 +28,7 @@ let package = Package(
         .target(
             name: "AsyncButton",
             dependencies: ["SwiftUIBackports"],
-            resources: [.copy("PrivacyInfo.xcprivacy")]
+            resources: [.copy("../PrivacyInfo.xcprivacy")]
         ),
         .testTarget(
             name: "AsyncButtonTests",
